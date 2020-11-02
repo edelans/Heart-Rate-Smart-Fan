@@ -1,4 +1,4 @@
-# Hear-Rate-Smart-Fan
+# Heart-Rate-Smart-Fan
 
 Control your fan speed with your heart beat.
 
@@ -25,6 +25,8 @@ The solution is to use a fan. But when you are lazy (and focused on your workout
 - Samsung S5e tablet or Apple TV to run Zwift
 - OnePlus 6 to run the Zwift companion app
 
+## Wiring 
+todo
 
 
 ## why ESP32 ? 
