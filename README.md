@@ -10,7 +10,7 @@ The solution is to use a fan. But when you are lazy (and focused on your workout
 
 ## Parts 
 
-### smartFan
+### SmartFan
 
 - ESP32 ~10€ (cheaper if you can wait from China imports)
 - cheap used fan ~20€ on Leboncoin
@@ -18,7 +18,7 @@ The solution is to use a fan. But when you are lazy (and focused on your workout
 - Dual (BT + Ant+) Heart Rate Monitor (HRM)
 - wires
 
-### other equipments of my setup
+### Other equipments of my setup
 
 - Garmin Forerunner 945 watch
 - Elite Direto XR home trainer
@@ -29,7 +29,7 @@ The solution is to use a fan. But when you are lazy (and focused on your workout
 todo
 
 
-## why ESP32 ? 
+## Why ESP32 ? 
 
 It's cheap
 It's small
@@ -38,7 +38,7 @@ It's popular
 
 ## Why driving the fan with heart rate ? 
 
-### speed-based smartFan 
+### Speed-based smartFan 
 ❌ You **don't** get wind when you need it the most
 Good idea to mimic the outdoor experience, but then you realize that when you are @170bpm attempting Alpe d'Huez ascension at 12km/h, you won't get a lot of fan wind, but I promise you'll crave for it !
 
@@ -71,7 +71,6 @@ You only have 2 bouetooth connections available to the Apple TV, the workaround 
 
 
 That's a lot of conenctions... I can simplify by removing the garmin watch and connecting the HRM directly to the phone/tablet via ANT+.
-
 
 
 
