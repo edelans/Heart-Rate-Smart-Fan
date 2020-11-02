@@ -8,6 +8,7 @@ I created this while setting up a home trainier for bike training in my garage d
 
 The solution is to use a fan. But when you are lazy (and focused on your workout) you don't want to have to get up and adjust fan speed (and  I don't have a remote for my fan, and it's much cooler to have it automated instead). 
 
+
 ## Parts 
 
 ### SmartFan
