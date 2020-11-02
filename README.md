@@ -33,24 +33,31 @@ todo
 ## Why ESP32 ? 
 
 It's cheap
+
 It's small
+
 It's popular
+
 
 
 ## Why driving the fan with heart rate ? 
 
 ### Speed-based smartFan 
 ❌ You **don't** get wind when you need it the most
+
 Good idea to mimic the outdoor experience, but then you realize that when you are @170bpm attempting Alpe d'Huez ascension at 12km/h, you won't get a lot of fan wind, but I promise you'll crave for it !
 
 ### Power-based smartFan 
 👍 You get wind when you need it the most
+
 ❌ Technical obstable : your home trainer can probably connect to 1 device in BT and 1 device in ANT+. ESP32 doesn't support ANT+ but supports bluetooth natively. Pairing your home trainer with zwift in ANT+ can only be done if you have an ANT+ compatible device running zwift (which is not the case of the Apple TV, unless their should be a workaroung with the Zwift companion app running on your phone if it supports ANT+). 
 
  
 ### Heartrate-based smartFan
 👍 You get wind when you need it the most
+
 👍 Easy to find an HRM compatible with ANT+ and Bluetooth at the same time. Be careful as if you pair your heart rate monitor to the esp32 in bluetooth, you probably won't be able to pair it to something else in BT (unless you have some very recent heart rate monitor like the Wahoo tickr which can pair to up to 3 devices simultaneously). 
+
 ➡️ Seems to be the most versatile setup! 
 
 ## Who connects to what ? 
