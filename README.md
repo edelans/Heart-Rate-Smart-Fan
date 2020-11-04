@@ -99,9 +99,10 @@ Thanks a lot to @jmlopezdona and his project here https://github.com/jmlopezdona
 
 # Improvements
 
-- add a LED for bluetooth connection status
-- add a switch to turn on/off / bypass PWM ?
-- power the esp32 with the 220V line input instead of having a second cable (micro-USB)
+- add a LED for bluetooth connection status, this https://github.com/jandelgado/jled will probably help a lot
+- [power the esp32 with Main Voltage using Hi-Link HLK-PM03 Converter](https://randomnerdtutorials.com/esp8266-hi-link-hlk-pm03/) instead of having a second cable (micro-USB) 
+- add a switch to turn on/off/bypass PWM ?
 - work on form factor : put all this on a single [PCB board](https://www.amazon.fr/Ensemble-cartes-circuit-imprim%C3%A9-Luwanz/dp/B075ZN455T/ref=sr_1_7?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=27SBXQ0O37795&dchild=1&keywords=pcb+board&qid=1604477790&sprefix=pcb+b%2Caps%2C162&sr=8-7) 
-- put it in a box / 3D printed casing ?
+- put it in a [project box enclosure](https://makeradvisor.com/tools/project-box-enclosure/) 
+- put it in a custom 3D printed casing
 

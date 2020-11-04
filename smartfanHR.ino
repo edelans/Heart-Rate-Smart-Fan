@@ -146,28 +146,29 @@ void zero_crosss_int()  // function to be fired at the zero crossing to dim the 
   // 10ms=10000us
 
   enable = true;
-  if (hrm.HRM > 140) {
-    dimming = 0;
-  }
-  else if (hrm.HRM > 130) {
-    dimming = 10;
-  }
-  else if (hrm.HRM > 120) {
-    dimming = 20;
-  }
-  else if (hrm.HRM > 110) {
-    dimming = 30;
-  }
-  else if (hrm.HRM > 100) {
-    dimming = 40;
-  }
-  else if (hrm.HRM > 90) {
-    dimming = 50;
-  }
-  else if (hrm.HRM <= 90) {
+
+  if (hrm.HRM < 90) {
     enable = false;
   }
-  
+  if (hrm.HRM >= 90 and hrm.HRM < 100 ) {
+    dimming = 60;
+  }
+  if (hrm.HRM >= 100 and hrm.HRM < 110 ) {
+    dimming = 40;
+  }
+  if (hrm.HRM >= 110 and hrm.HRM < 120 ) {
+    dimming = 30;
+  }
+  if (hrm.HRM >= 120 and hrm.HRM < 130 ) {
+    dimming = 20;
+  }
+  if (hrm.HRM >= 130 and hrm.HRM < 140 ) {
+    dimming = 10;
+  }
+  if (hrm.HRM >= 140) {
+    dimming = 0;
+  }
+
   if (enable) {
     int dimtime = (100*dimming);    // For 60Hz =>65    
     delayMicroseconds(dimtime);     // Off cycle
