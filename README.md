@@ -13,9 +13,9 @@ The solution is to use a fan. But when you are lazy (and focused on your workout
 
 ### SmartFan
 
-- ESP32 ~10€ (cheaper if you can wait from China imports)
-- cheap used fan ~20€ on Leboncoin
-- Light dimmer ~12€
+- ESP32 [~10€ on amazon](https://www.amazon.fr/gp/product/B074RGW2VQ/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1), [~3€ on AliExpress](https://www.aliexpress.com/wholesale?catId=0&initiative_id=SB_20201104000602&origin=y&SearchText=esp32)
+- cheap used fan, aim for ~100W (mine was ~20€ on [Leboncoin](https://www.leboncoin.fr/recherche/?category=20&text=ventilateur&price=5-100))
+- Light dimmer module with PWM control [~12€ on Amazon](https://www.amazon.fr/gp/product/B07FCF1YSY/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&psc=1), [~2€ on Aliexpress](https://es.aliexpress.com/item/32802025086.html?spm=a219c.search0104.3.1.55b65ca8lFJTgG&ws_ab_test=searchweb0_0,searchweb201602_2_10065_10068_10547_319_10891_317_10)
 - Dual (BT + Ant+) Heart Rate Monitor (HRM)
 - wires
 
