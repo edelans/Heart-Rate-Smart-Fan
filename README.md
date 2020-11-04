@@ -92,9 +92,16 @@ You only have 2 bouetooth connections available to the Apple TV, the workaround 
 That's a lot of conenctions... I can simplify by removing the garmin watch and connecting the HRM directly to the phone/tablet via ANT+.
 
 
-
 # Inspiration 
 
 Thanks a lot to @jmlopezdona and his project here https://github.com/jmlopezdona/smartfan-esp32 for a speed controlled smart fan for paving the way for the present project (Heart rate controlled). 
 
+
+# Improvements
+
+- add a LED for bluetooth connection status
+- add a switch to turn on/off / bypass PWM ?
+- power the esp32 with the 220V line input instead of having a second cable (micro-USB)
+- work on form factor : put all this on a single [PCB board](https://www.amazon.fr/Ensemble-cartes-circuit-imprim%C3%A9-Luwanz/dp/B075ZN455T/ref=sr_1_7?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=27SBXQ0O37795&dchild=1&keywords=pcb+board&qid=1604477790&sprefix=pcb+b%2Caps%2C162&sr=8-7) 
+- put it in a box / 3D printed casing ?
 
