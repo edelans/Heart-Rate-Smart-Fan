@@ -47,15 +47,16 @@ PWM -> Pin 23
 
 Beware : different implementations of the ESP32 exist, they don't have the same pin pattern, so you'd better rely on pin readings rather than blindlessly following a wiring schema on the internet.
 
-For the 220V part, I just cut a power extension cord in 2, and wired the "incoming" part to "AC-IN", and the "outgoing" part to "LOAD". I didn't find any indication regarding which wire (phase/neutrol) should go where... So either I got lucky, either it doesn't matter... If you are reading this and you have the answer, please [help me](https://github.com/edelans/Heart-Rate-Smart-Fan/issues) !
+⚠️☠️⚠️ be extra careful while manipulating ⚡ 220v wires ⚡ : make sure the wire is unplug first ! ⚠️☠️⚠️ 
+For the 220V part, I just cut a power extension cord in 2, and wired the "incoming" part to "AC-IN", and the "outgoing" part to "LOAD". I didn't find any indication regarding which wire (phase/neutrol) should go where... So either I got lucky, either it doesn't matter... If you are reading this and you have the answer, please [help me](https://github.com/edelans/Heart-Rate-Smart-Fan/issues) ! And of course, 
+⚠️☠️⚠️ be extra careful while manipulating ⚡ 220v wires ⚡ : make sure the wire is unplug first ! ⚠️☠️⚠️ 
+
 
 
 ## Why ESP32 ? 
 
 It's cheap
-
 It's small
-
 It's popular
 
 
