@@ -3,11 +3,13 @@
  */
 
 #include "BLEDevice.h"
+#include <jled.h>
 
 const String sketchName = "ESP32 HRM BLE Smart Fan";
 unsigned char PWM = 23;       // Output to Opto Triac pin
 unsigned char ZEROCROSS = 4;  // Output to Opto Triac pin
 unsigned char dimming = 0;    // Dimming level (0-100)
+unsigned char old_dimming = 0;    // Dimming level (0-100)
 boolean enable = false;       // Dimming not enabled by default. Will need to reach min HR
 
 
@@ -30,6 +32,11 @@ typedef struct {
 }HRM;
 HRM hrm;
 
+
+// connect LED to pin 13 (PWM capable). LED will breathe with period of
+// 2000ms and a delay of 1000ms after each period.
+// flashing pattern will be updated in accordance with Bluetooth connection status
+auto led = JLed(17).Breathe(2000).DelayAfter(1000).Forever();
 
 //--------------------------------------------------------------------------------------------
 // Setup the Serial Port and output Sketch name and compile date
@@ -146,6 +153,7 @@ void zero_crosss_int()  // function to be fired at the zero crossing to dim the 
   // 10ms=10000us
 
   enable = true;
+  old_dimming = dimming;
 
   if (hrm.HRM < 90) {
     enable = false;
@@ -169,6 +177,15 @@ void zero_crosss_int()  // function to be fired at the zero crossing to dim the 
     dimming = 0;
   }
 
+  if (old_dimming > dimming) {
+    Serial.print("MORE power ! decrease dimming to : ");
+    Serial.println(dimming);
+  } 
+  if (old_dimming < dimming) {
+    Serial.print("LESS power ! increase dimming to : ");
+    Serial.println(dimming);
+  }
+
   if (enable) {
     int dimtime = (100*dimming);    // For 60Hz =>65    
     delayMicroseconds(dimtime);     // Off cycle
@@ -187,7 +204,7 @@ void setup() {
 
   Serial.println("Starting Arduino BLE Client application...");
   BLEDevice::init("");
-  // TODO : flash the LED in blue
+
 
   // Retrieve a Scanner and set the callback we want to use to be informed when we
   // have detected a new device. Specify that we want active scanning and start the
@@ -208,10 +225,15 @@ void loop() {
     if (connectToServer(*pServerAddress)) {
       Serial.println("We are now connected to the BLE Server.");
       connected = true;
-      // TODO : turn on the LED in blue
+
+      // change led flashing pattern according to new BT status
+      led = JLed(17).On();
     } else {
       Serial.println("We have failed to connect to the server; there is nothin more we will do.");
-      // TODO : flash the LED in red
+      
+      // change led flashing pattern according to new BT status
+      // blink LED (X,Y) = X ms ON, Y ms OFF.
+      led = JLed(17).Blink(500, 500).Forever();
     }
     doConnect = false;
   }
@@ -220,7 +242,7 @@ void loop() {
   // to subscribe to heart rate updates
   if (connected) {
     if (notification == false) {
-      Serial.println(F("Turning Notifocation On"));
+      Serial.println(F("Turning Notification On"));
       const uint8_t onPacket[] = {0x1, 0x0};
       pRemoteCharacteristic->getDescriptor(BLEUUID((uint16_t)0x2902))->writeValue((uint8_t*)onPacket, 2, true);
       notification = true;
@@ -228,4 +250,6 @@ void loop() {
     
   }
 
+  // update led state
+  led.Update();
 }
