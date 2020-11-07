@@ -12,7 +12,7 @@ The solution is to use a fan. But when you are lazy (and focused on your workout
 
 ## Video demo
 
-![demo video](https://youtu.be/DLp7hjtuU8w)
+[check this out on YouTube !](https://youtu.be/DLp7hjtuU8w)
 
 ## Parts
 
@@ -35,42 +35,52 @@ The solution is to use a fan. But when you are lazy (and focused on your workout
 
 ## Wiring
 
+### For the dimmer
+
 4 wires between AC Dimmer and ESP32 :
 
-(AC dimmer -> ESP32)
-VCC -> 3V3
-GND -> GND
-Z-C -> Pin 4
-PWM -> Pin 23
+|AC dimmer | ESP32|
+|---|---|
+| VCC | 3V3 |
+| GND | GND |
+| Z-C | Pin 4 |
+| PWM | Pin 23 |
 
-Beware : different implementations of the ESP32 exist, they don't have the same pin pattern, so you'd better rely on pin readings rather than blindlessly following a wiring schema on the internet.
+### For the LED
+
+- ESP32 pin 16 -> LED's flat edge pin
+- GND -> 100Ohm resistance -> LED's rounded edge pin 
+
+Beware : I realized different implementations of the ESP32 don't have the same pin pattern, so you'd better rely on pin readings rather than blindlessly following a wiring schema on the internet. That's why there is no schema here.
 
 ⚠️☠️⚠️ **be extra careful while manipulating ⚡ 220v wires ⚡ : make sure the wire is unplug first !** ⚠️☠️⚠️
+
 For the 220V part, I just cut a power extension cord in 2, and wired the "incoming" part to "AC-IN", and the "outgoing" part to "LOAD". I didn't find any indication regarding which wire (phase/neutrol) should go where... So either I got lucky, either it doesn't matter... If you are reading this and you have the answer, please [help me](https://github.com/edelans/Heart-Rate-Smart-Fan/issues) !
+
 ⚠️☠️⚠️ **be extra careful while manipulating ⚡ 220v wires ⚡ : make sure the wire is unplug first !** ⚠️☠️⚠️
 
 ## Why ESP32
 
-It's cheap
-It's small
-It's popular
+- It's cheap
+- It's small
+- It's popular
 
 ## Why driving the fan with heart rate
 
 ### Speed-based smartFan
 
-❌ You **don't** get wind when you need it the most
-Good idea to mimic the outdoor experience, but then you realize that when you are @170bpm attempting Alpe d'Huez ascension at 12km/h, you won't get a lot of fan wind, but I promise you'll crave for it !
+- ❌ You **don't** get wind when you need it the most
+- Good idea to mimic the outdoor experience, but then you realize that when you are @170bpm attempting Alpe d'Huez ascension at 12km/h, you won't get a lot of fan wind, but I promise you'll crave for it !
 
 ### Power-based smartFan
 
-👍 You get wind when you need it the most
-❌ Technical obstable : your home trainer can probably connect to 1 device in BT and 1 device in ANT+. ESP32 doesn't support ANT+ but supports bluetooth natively. Pairing your home trainer with zwift in ANT+ can only be done if you have an ANT+ compatible device running zwift (which is not the case of the Apple TV, unless their should be a workaroung with the Zwift companion app running on your phone if it supports ANT+).
+- 👍 You get wind when you need it the most
+- ❌ Technical obstable : your home trainer can probably connect to 1 device in BT and 1 device in ANT+. ESP32 doesn't support ANT+ but supports bluetooth natively. Pairing your home trainer with zwift in ANT+ can only be done if you have an ANT+ compatible device running zwift (which is not the case of the Apple TV, unless their should be a workaroung with the Zwift companion app running on your phone if it supports ANT+).
 
 ### Heartrate-based smartFan
 
-👍 You get wind when you need it the most
-👍 Easy to find an HRM compatible with ANT+ and Bluetooth at the same time. Be careful as if you pair your heart rate monitor to the esp32 in bluetooth, you probably won't be able to pair it to something else in BT (unless you have some very recent heart rate monitor like the Wahoo tickr which can pair to up to 3 devices simultaneously).
+- 👍 You get wind when you need it the most
+- 👍 Easy to find an HRM compatible with ANT+ and Bluetooth at the same time. Be careful as if you pair your heart rate monitor to the esp32 in bluetooth, you probably won't be able to pair it to something else in BT (unless you have some very recent heart rate monitor like the Wahoo tickr which can pair to up to 3 devices simultaneously).
 
 ➡️ Seems to be the most versatile setup!
 
