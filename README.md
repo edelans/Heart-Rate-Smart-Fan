@@ -1,3 +1,5 @@
+![](https://user-images.githubusercontent.com/2805640/98443948-09f1ce00-210f-11eb-8a64-25ad9aa61905.png)
+
 # Heart-Rate-Smart-Fan
 
 Control your fan speed with your heart beat.
@@ -9,7 +11,14 @@ I created this while setting up a home trainier for bike training in my garage d
 The solution is to use a fan. But when you are lazy (and focused on your workout) you don't want to have to get up and adjust fan speed (and  I don't have a remote for my fan, and it's much cooler to have it automated instead). 
 
 
+## Video demo
+
+https://youtu.be/DLp7hjtuU8w
+
 ## Parts 
+
+![](https://user-images.githubusercontent.com/2805640/98443935-eaf33c00-210e-11eb-9ded-5c89fa68d8bf.png)
+
 
 ### SmartFan
 
@@ -99,10 +108,10 @@ Thanks a lot to @jmlopezdona and his project here https://github.com/jmlopezdona
 
 # Improvements
 
-- add a LED for bluetooth connection status, this https://github.com/jandelgado/jled will probably help a lot
-- [power the esp32 with Main Voltage using Hi-Link HLK-PM03 Converter](https://randomnerdtutorials.com/esp8266-hi-link-hlk-pm03/) instead of having a second cable (micro-USB) 
+- 👍 add a LED for bluetooth connection status, with https://github.com/jandelgado/jled 
+- [power the esp32 with Mains Voltage using Hi-Link HLK-PM03 Converter](https://randomnerdtutorials.com/esp8266-hi-link-hlk-pm03/) instead of having a second cable (micro-USB) 
 - add a switch to turn on/off/bypass PWM ?
 - work on form factor : put all this on a single [PCB board](https://www.amazon.fr/Ensemble-cartes-circuit-imprim%C3%A9-Luwanz/dp/B075ZN455T/ref=sr_1_7?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=27SBXQ0O37795&dchild=1&keywords=pcb+board&qid=1604477790&sprefix=pcb+b%2Caps%2C162&sr=8-7) 
 - put it in a [project box enclosure](https://makeradvisor.com/tools/project-box-enclosure/) 
 - put it in a custom 3D printed casing
-
+- go back in scanning mode when BT connexion is lost. Currently, if you move too far away from the ESP32 and BT connexion is lost, the state is frozen, even when you come back into the BT range : the heart rate is not updated anymore. It would be nicer if the ESP32 could just go back into BT scanning mode when no heart rate notification is received for more than 10s.
